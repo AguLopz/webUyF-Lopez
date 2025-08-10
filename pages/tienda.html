@@ -7,39 +7,195 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
-<body class="bg-dark text-warning text-center">
+<body class="bg-dark text-center">
   <header class="py-4">
     <h1 class="mb-2">Unión y Fuerza</h1>
     <nav id="site-nav" class="nav justify-content-center gap-2"></nav>
   </header>
 
-  <main class="container py-5">
-    <h2 class="mb-4">Tienda Oficial</h2>
-    <div class="row justify-content-center g-4">
-      <div class="col-10 col-sm-6 col-md-4">
-        <div class="card h-100 text-start">
-          <div class="card-body">
-            <h5 class="card-title">Remera Negra</h5>
-            <p class="card-text">Tela liviana, logo UYF. Talles S-XXL.</p>
-            <a href="#" class="btn btn-dark btn-hover">Comprar</a>
+ <section class="tienda coverflow-tienda" id="tienda">
+  <h2 class="mb-3">Tienda Oficial</h2>
+  <p class="intro-tienda">Ropa oficial del Club Unión y Fuerza.</p>
+
+  <div id="coverflowTienda" class="cfw" tabindex="0" aria-label="Carrusel de productos">
+    <button class="cfw-arrow prev" type="button" aria-label="Anterior">‹</button>
+
+    <div class="cfw-viewport">
+      <div class="cfw-stage" role="listbox" aria-live="polite">
+        <!-- 1 -->
+        <article class="cfw-item" role="option" aria-selected="true" data-index="0">
+          <div class="prod-card">
+            <figure class="prod-media">
+              <img src="../img/remera.jpg" alt="Remera oficial Unión y Fuerza">
+              <span class="badge nuevo">Nuevo</span>
+            </figure>
+            <div class="prod-info">
+              <h3 class="prod-titulo">Remera Oficial</h3>
+              <p class="prod-precio">$14.900</p>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-10 col-sm-6 col-md-4">
-        <div class="card h-100 text-start">
-          <div class="card-body">
-            <h5 class="card-title">Short Amarillo</h5>
-            <p class="card-text">Secado rápido, cinturilla elástica.</p>
-            <a href="#" class="btn btn-dark btn-hover">Comprar</a>
+        </article>
+
+        <!-- 2 -->
+        <article class="cfw-item" role="option" aria-selected="false" data-index="1">
+          <div class="prod-card">
+            <figure class="prod-media">
+              <img src="../img/camiseta.jpg" alt="Camiseta titular negra y amarilla">
+              <span class="badge destacado">Destacado</span>
+            </figure>
+            <div class="prod-info">
+              <h3 class="prod-titulo">Camiseta Titular</h3>
+              <p class="prod-precio">$29.900</p>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="cfw-item" role="option" aria-selected="false" data-index="2">
+          <div class="prod-card">
+            <figure class="prod-media">
+              <img src="../img/alternativa.jpg" alt="Camiseta alternativa">
+            </figure>
+            <div class="prod-info">
+              <h3 class="prod-titulo">Camiseta Alternativa</h3>
+              <p class="prod-precio">$27.900</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="cfw-item" role="option" aria-selected="false" data-index="3">
+          <div class="prod-card">
+            <figure class="prod-media">
+              <img src="../img/buzo.webp" alt="Buzo con capucha">
+              <span class="badge oferta">-20%</span>
+            </figure>
+            <div class="prod-info">
+              <h3 class="prod-titulo">Buzo con Capucha</h3>
+              <p class="prod-precio">$23.900 <del class="tachado">$29.900</del></p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="cfw-item" role="option" aria-selected="false" data-index="4">
+          <div class="prod-card">
+            <figure class="prod-media">
+              <img src="../img/camperon.jpg" alt="Campera rompeviento">
+            </figure>
+            <div class="prod-info">
+              <h3 class="prod-titulo">Campera Rompeviento</h3>
+              <p class="prod-precio">$34.900</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6 (opcional, borralo si querés 5) -->
+        <article class="cfw-item" role="option" aria-selected="false" data-index="5">
+          <div class="prod-card">
+            <figure class="prod-media">
+              <img src="../img/pantalon.jpg" alt="Pantalón deportivo">
+            </figure>
+            <div class="prod-info">
+              <h3 class="prod-titulo">Pantalón Deportivo</h3>
+              <p class="prod-precio">$19.900</p>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
-  </main>
+
+    <button class="cfw-arrow next" type="button" aria-label="Siguiente">›</button>
+  </div>
+</section>
 
   <footer class="py-4 border-top border-warning">
     <small>© 2025 Unión y Fuerza</small>
   </footer>
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js" defer></script>
+<script src="../js/main.js" defer></script>
+<script defer>
+window.addEventListener('DOMContentLoaded', function(){
+  try {
+    var root = document.getElementById('coverflowTienda');
+    if (!root) return;
+
+    var stage = root.querySelector('.cfw-stage');
+    var items = Array.prototype.slice.call(stage.querySelectorAll('.cfw-item'));
+    var prev = root.querySelector('.cfw-arrow.prev');
+    var next = root.querySelector('.cfw-arrow.next');
+    if (!items.length) return;
+
+    // Estado
+    var N = items.length;
+    var active = Math.floor(N/2); // centro por defecto
+    var gapPx = 220;              // valor inicial, se recalcula por tamaño
+
+    function recalc() {
+      var w = stage.getBoundingClientRect().width;
+      // gap = clamp(160, 0.26*w, 260)
+      gapPx = Math.max(160, Math.min(260, 0.26 * w));
+      render();
+    }
+
+    function circDelta(i, a) {
+      var d = (i - a) % N; if (d < 0) d += N;
+      if (d > N/2) d -= N;
+      return d; // negativo izquierda, positivo derecha
+    }
+
+    function scaleFor(k) {
+      k = Math.abs(k);
+      if (k === 0) return 1.0;
+      if (k === 1) return 0.9;
+      if (k === 2) return 0.8;
+      return 0.7;
+    }
+
+    function render() {
+      items.forEach(function(el, i){
+        var k = circDelta(i, active);         // distancia al centro
+        var x = k * gapPx;                    // desplazamiento en px
+        var s = scaleFor(k);
+        el.style.transform =
+          'translate3d(' + (x) + 'px,0,0) translateX(-50%) ' +
+          'scale(' + s + ') ' +
+          'rotateY(' + (k * -10) + 'deg)';
+        el.style.zIndex = String(100 - Math.abs(k));
+        el.classList.toggle('is-center', k === 0);
+        el.setAttribute('aria-selected', k === 0 ? 'true' : 'false');
+      });
+    }
+
+    function go(dir) { active = (active + dir + N) % N; render(); }
+
+    // Flechas
+    prev.addEventListener('click', function(){ go(-1); });
+    next.addEventListener('click', function(){ go(1); });
+
+    // Click en ítem -> centrar
+    stage.addEventListener('click', function(e){
+      var card = e.target.closest('.cfw-item');
+      if (!card) return;
+      var idx = parseInt(card.getAttribute('data-index'), 10);
+      if (!isNaN(idx)) { active = idx; render(); }
+    });
+
+    // Teclado
+    root.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    });
+
+    // Resize: recalcular gap para fluidez
+    window.addEventListener('resize', recalc);
+
+    // Inicial
+    recalc();
+  } catch(_) { /* no rompemos otros scripts */ }
+});
+</script>
+
+
 </body>
 </html>

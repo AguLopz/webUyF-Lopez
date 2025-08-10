@@ -5,10 +5,9 @@
   const PAGES_DIR_REAL = 'Pages'; 
 
   // Orden fijo del menú
-  const ORDER = ['index', 'sobrenosotros', 'actividades', 'alquileres', 'tienda', 'contacto'];
+  const ORDER = ['index', 'actividades', 'alquileres', 'tienda', 'contacto'];
   const LABEL = {
     index: 'Inicio',
-    sobrenosotros: 'Sobre Nosotros',
     actividades: 'Actividades',
     alquileres: 'Alquileres',
     tienda: 'Tienda',
@@ -23,7 +22,6 @@
   // Armar rutas usando el nombre real de la carpeta
   const HREF = {
     index: `${base}index.html`,
-    sobrenosotros: `${base}${PAGES_DIR_REAL}/sobreNosotros.html`,
     actividades: `${base}${PAGES_DIR_REAL}/actividades.html`,
     alquileres: `${base}${PAGES_DIR_REAL}/alquileres.html`,
     tienda: `${base}${PAGES_DIR_REAL}/tienda.html`,
@@ -34,7 +32,7 @@
   const nav = document.getElementById('site-nav');
   if (nav) {
     nav.innerHTML = ORDER
-      .map(key => `<a class="nav-link text-warning" href="${HREF[key]}">${LABEL[key]}</a>`)
+      .map(key => `<a class="nav-link" href="${HREF[key]}">${LABEL[key]}</a>`)
       .join('');
   }
 
@@ -60,3 +58,4 @@
     }, false);
   });
 })();
+

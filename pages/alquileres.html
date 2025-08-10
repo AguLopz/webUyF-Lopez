@@ -7,16 +7,119 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
-<body class="bg-dark text-warning text-center">
+<body class="bg-dark text-center text-light">
+
   <header class="py-4">
     <h1 class="mb-2">Unión y Fuerza</h1>
     <nav id="site-nav" class="nav justify-content-center gap-2"></nav>
   </header>
 
-  <main class="container py-5">
-    <h2 class="mb-3">Alquileres</h2>
-    <p class="lead">Reservá canchas y salones. Tarifas claras y gestión simple.</p>
-  </main>
+  <section class="reservas reservas-accordion" id="reservas">
+  <h2>Reservas</h2>
+  <p class="intro-reservas">
+    Consultá disponibilidad y reservá tu espacio. Para la Quinta y el Salón usamos el mismo contacto.
+  </p>
+
+  <div class="accordion-reservas">
+
+
+    <!-- Pádel -->
+    <details class="reserva is-padel" open>
+      <summary>
+        <span class="icon" aria-hidden="true">🎾</span>
+        <span class="title">Canchas de Pádel</span>
+        <span class="tag">Sede Central</span>
+      </summary>
+      <div class="content">
+        <div class="content-inner">
+          <p class="desc">Turnos de 60/90 min. Clases y partidos amistosos. Iluminación nocturna.</p>
+          <div class="contacto">
+            <strong>Recepción:</strong>
+            <a href="mailto:reservaspadel@unionyfuerza.club">reservaspadel@unionyfuerza.club</a> ·
+            <a href="tel:+5491155554321">11 5555-4321</a>
+          </div>
+          <div class="acciones">
+            <a class="btn btn-primario" href="#disponibilidad-padel">Ver disponibilidad</a>
+            <a class="btn btn-secundario" href="mailto:reservaspadel@unionyfuerza.club?subject=Reserva%20P%C3%A1del">Reservar</a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Salón -->
+    <details class="reserva is-salon">
+      <summary>
+        <span class="icon" aria-hidden="true">🎉</span>
+        <span class="title">Salón</span>
+        <span class="tag">Sede Central</span>
+      </summary>
+      <div class="content">
+        <div class="content-inner">
+          <p class="desc">Para cumpleaños, eventos y reuniones. Opcional sonido/iluminación.</p>
+          <div class="contacto">
+            <strong>Eventos y Alquileres:</strong>
+            <a href="mailto:reservas@unionyfuerza.club">reservas@unionyfuerza.club</a> ·
+            <a href="tel:+5491144448765">11 4444-8765</a>
+          </div>
+          <div class="acciones">
+            <a class="btn btn-primario" href="#disponibilidad-salon">Ver disponibilidad</a>
+            <a class="btn btn-secundario" href="mailto:reservas@unionyfuerza.club?subject=Reserva%20Sal%C3%B3n">Solicitar reserva</a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Quinta -->
+    <details class="reserva is-quinta">
+      <summary>
+        <span class="icon" aria-hidden="true">🏡</span>
+        <span class="title">La Quinta</span>
+        <span class="tag">Predio</span>
+      </summary>
+      <div class="content">
+        <div class="content-inner">
+          <p class="desc">Salón para alquilar, parrilla y quincho al aire libre. Entorno natural.</p>
+          <div class="contacto">
+            <strong>Eventos y Alquileres:</strong>
+            <a href="mailto:reservas@unionyfuerza.club">reservas@unionyfuerza.club</a> ·
+            <a href="tel:+5491144448765">11 4444-8765</a>
+          </div>
+          <div class="acciones">
+            <a class="btn btn-primario" href="#disponibilidad-quinta">Ver disponibilidad</a>
+            <a class="btn btn-secundario" href="mailto:reservas@unionyfuerza.club?subject=Reserva%20Quinta">Solicitar reserva</a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Restaurante -->
+    <details class="reserva is-resto">
+      <summary>
+        <span class="icon" aria-hidden="true">🍽️</span>
+        <span class="title">Restaurante</span>
+        <span class="tag">Sede Central</span>
+      </summary>
+      <div class="content">
+        <div class="content-inner">
+          <p class="desc">Reservas de mesa para almuerzos, cenas y eventos. Menú para grupos.</p>
+          <div class="contacto">
+            <strong>Reservas de Mesa:</strong>
+            <a href="mailto:restaurante@unionyfuerza.club">restaurante@unionyfuerza.club</a> ·
+            <a href="tel:+5491133339753">11 3333-9753</a>
+          </div>
+          <div class="acciones">
+            <a class="btn btn-primario" href="#disponibilidad-resto">Ver disponibilidad</a>
+            <a class="btn btn-secundario" href="mailto:restaurante@unionyfuerza.club?subject=Reserva%20Restaurante">Reservar</a>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  </section>
+
+
+
 
   <footer class="py-4 border-top border-warning">
     <small>© 2025 Unión y Fuerza</small>
